@@ -1,0 +1,214 @@
+---
+title: "665020082-6_NT_basicR"
+author: "Nanthanit"
+date: "2025-05-04"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#นำเข้าไฟล์ csv
+plant_growth_data <- read.csv("plant_growth_data.csv")
+head(plant_growth_data)
+```
+```{r}
+#เปิดใช้งานแพ็คเกจ
+library(dplyr) 
+library(ggplot2)
+```
+#ข้อ 1 หาค่าเฉลี่ยของ Height_cm, Leaf_Count, Flower_Count, Soil_pH, Chlorophyll_Content, Stem_Diameter และ Days_to_Flowering สำหรับแต่ละ Species และ Treatment
+```{r}
+#หาค่าเฉลี่ยใน Rosa sp.
+#เลือกข้อมูลเฉพาะ Rosa และสร้าง data frame ใหม่ชื่อ df_Rosa
+df_Rosa <- filter(plant_growth_data, Species == "Rosa")
+df_Rosa
+```
+```{r}
+#หาค่าเฉลี่ยของทุกค่าในแต่ละ Treatment ของ Rosa sp.
+result_Rosa <- df_Rosa  %>%
+  group_by(Treatment) %>%
+  summarise(
+    Rosa_Height_cm_mean = mean(Height_cm),
+    Rosa_Leaf_Count_mean = mean(Leaf_Count),
+    Rosa_Flower_Count_mean = mean(Flower_Count),
+    Rosa_Soil_pH_mean = mean(Soil_pH),
+    Rosa_Chlorophyll_Content_mean = mean(Chlorophyll_Content),
+    Rosa_Stem_Diameter_mean = mean(Stem_Diameter),
+    Rosa_Days_to_Flowering_mean = mean(Days_to_Flowering)
+  )
+result_Rosa
+```
+
+
+```{r}
+#หาค่าเฉลี่ยใน Lavandula sp.
+#เลือกข้อมูลเฉพาะ Lavandula และสร้าง data frame ใหม่ชื่อ df_Lavandula
+df_Lavandula <- filter(plant_growth_data, Species == "Lavandula")
+df_Lavandula
+```
+```{r}
+#หาค่าเฉลี่ยของทุกค่าในแต่ละ Treatment ของ Lavandula sp.
+result_Lavandula <- df_Lavandula  %>%
+  group_by(Treatment) %>%
+  summarise(
+    Lavandula_Height_cm_mean = mean(Height_cm),
+    Lavandula_Leaf_Count_mean = mean(Leaf_Count),
+    Lavandula_Flower_Count_mean = mean(Flower_Count),
+    Lavandula_Soil_pH_mean = mean(Soil_pH),
+    Lavandula_Chlorophyll_Content_mean = mean(Chlorophyll_Content),
+    Lavandula_Stem_Diameter_mean = mean(Stem_Diameter),
+    Lavandula_Days_to_Flowering_mean = mean(Days_to_Flowering)
+  )
+result_Lavandula
+```
+```{r}
+#หาค่าเฉลี่ยใน Salvia sp.
+#เลือกข้อมูลเฉพาะ Salvia และสร้าง data frame ใหม่ชื่อ df_Salvia
+df_Salvia <- filter(plant_growth_data, Species == "Salvia")
+df_Salvia
+```
+```{r}
+#หาค่าเฉลี่ยของทุกค่าในแต่ละ Treatment ของ Salvia sp.
+result_Salvia<- df_Salvia  %>%
+  group_by(Treatment) %>%
+  summarise(
+    Salvia_Height_cm_mean = mean(Height_cm),
+    Salvia_Leaf_Count_mean = mean(Leaf_Count),
+    Salvia_Flower_Count_mean = mean(Flower_Count),
+    Salvia_Soil_pH_mean = mean(Soil_pH),
+    Salvia_Chlorophyll_Content_mean = mean(Chlorophyll_Content),
+    Salvia_Stem_Diameter_mean = mean(Stem_Diameter),
+    Salvia_Days_to_Flowering_mean = mean(Days_to_Flowering)
+  )
+result_Salvia
+```
+```{r}
+#หาค่าเฉลี่ยใน Thymus sp.
+#เลือกข้อมูลเฉพาะ Thymus และสร้าง data frame ใหม่ชื่อ df_Thymus
+df_Thymus <- filter(plant_growth_data, Species == "Thymus")
+df_Thymus
+```
+```{r}
+#หาค่าเฉลี่ยของทุกค่าในแต่ละ Treatment ของ Thymus sp.
+result_Thymus<- df_Thymus  %>%
+  group_by(Treatment) %>%
+  summarise(
+    Thymus_Height_cm_mean = mean(Height_cm),
+    Thymus_Leaf_Count_mean = mean(Leaf_Count),
+    Thymus_Flower_Count_mean = mean(Flower_Count),
+    Thymus_Soil_pH_mean = mean(Soil_pH),
+    Thymus_Chlorophyll_Content_mean = mean(Chlorophyll_Content),
+    Thymus_Stem_Diameter_mean = mean(Stem_Diameter),
+    Thymus_Days_to_Flowering_mean = mean(Days_to_Flowering)
+  )
+result_Thymus
+```
+```{r}
+#หาค่าเฉลี่ยใน Rosmarinus sp.
+#เลือกข้อมูลเฉพาะ Rosmarinus และสร้าง data frame ใหม่ชื่อ df_Rosmarinus
+df_Rosmarinus <- filter(plant_growth_data, Species == "Rosmarinus")
+df_Rosmarinus
+```
+```{r}
+#หาค่าเฉลี่ยของทุกค่าในแต่ละ Treatment ของ  Rosmarinus sp. 
+result_Rosmarinus<- df_Rosmarinus  %>%
+  group_by(Treatment) %>%
+  summarise(
+    Rosmarinus_Height_cm_mean = mean(Height_cm),
+    Rosmarinus_Leaf_Count_mean = mean(Leaf_Count),
+    Rosmarinus_Flower_Count_mean = mean(Flower_Count),
+    Rosmarinus_Soil_pH_mean = mean(Soil_pH),
+    Rosmarinus_Chlorophyll_Content_mean = mean(Chlorophyll_Content),
+    Rosmarinus_Stem_Diameter_mean = mean(Stem_Diameter),
+    Rosmarinus_Days_to_Flowering_mean = mean(Days_to_Flowering)
+  )
+result_Rosmarinus
+```
+
+#ข้อ 2 สร้าง data frame ใหม่ที่ประกอบด้วย Species, Treatment และค่าเฉลี่ยของพารามิเตอร์แต่ละตัว ใช้ head() เพื่อแสดง data frame ใหม่ของคุณ
+```{r}
+#สร้างตารางรวมค่าเฉลี่ย
+summary_df <- plant_growth_data %>%
+  group_by(Species, Treatment) %>%
+  summarise(
+    across(
+      c(Height_cm, Leaf_Count, Flower_Count, Soil_pH,
+        Chlorophyll_Content, Stem_Diameter, Days_to_Flowering),
+      \(x) mean(x, na.rm = TRUE)
+    ),
+    .groups = "drop"
+  )
+head(summary_df)
+```
+
+#ข้อ 3 พล็อตกราฟแท่งของ Height_cm, Leaf_Count, Flower_Count, Soil_pH, Chlorophyll_Content, Stem_Diameter และ Days_to_Flowering ใน Rosa/Control (ใช้ค่าเฉลี่ยของแต่ละการวัด)
+
+```{r}
+barplot(as.numeric(summary_df[4,3:9]), #ดึงค่าตัวเลขแถวที่ 4 คอลัมน์ที่ 3–9 แล้วแปลงเป็นเวกเตอร์
+        names.arg = names(summary_df[3:9]),
+        main = "Rosa - Control (Average)",
+        xlab = "Data",
+        ylab = "Average",
+        col = 'hotpink',
+        border = "skyblue",
+        cex.names = 0.6
+        )
+```
+#ข้อ 4เปรียบเทียบค่าเฉลี่ยของ Height_cm ระหว่าง Species ในกลุ่ม control โดยใช้กราฟแท่ง
+```{r}
+all_control.df <- filter(summary_df, Treatment == "Control")
+all_control.df
+
+barplot(all_control.df$Height_cm,
+        names.arg = all_control.df$Species,
+        main = "Height_cm (all species in control group)",
+        xlab = "species",
+        ylab = "Height (cm)",
+        col = "navy",
+        border = "skyblue"
+        )
+```
+#ข้อ 5เปรียบเทียบค่าเฉลี่ยของ Chlorophyll_Content ระหว่าง Species ในกลุ่ม fertilizer โดยใช้กราฟแท่ง
+```{r}
+all_ferti.df <- filter(summary_df, Treatment == "Fertilizer")
+all_ferti.df
+
+barplot(all_ferti.df$Chlorophyll_Content,
+        names.arg = all_ferti.df$Species,
+        main = "Chlorophyll_Content (all species in fertilizer group)",
+        xlab = "species",
+        ylab = "Chlorophyll_Content",
+        col =c("#af8fee","green","orange","hotpink","cyan"),
+        border = "skyblue"
+        )
+```
+#ข้อ 6 เปรียบเทียบค่าเฉลี่ยของ Days_to_Flowering ของทุก Species และ Treatment โดยใช้กราฟแท่ง
+
+
+```{r}
+bp <- barplot(
+  summary_df$Days_to_Flowering,
+  names.arg = rep("", nrow(summary_df)), # ซ่อน names.arg
+  main = "Days_to_Flowering (all species and all group)",
+  xlab = "species",
+  ylab = "Days_to_Flowering",
+  col = "salmon",
+  border = "skyblue"
+)
+# ชื่อของแต่ละแท่ง (จาก names.arg เดิม)
+my_labels <- paste(summary_df$Species, summary_df$Treatment, sep = "-")
+# ใส่ตัวหนังสือลงบนแท่ง (ตรงจุดสูงสุดของแต่ละแท่ง)
+text(
+  x = bp, 
+  y = summary_df$Days_to_Flowering + 2, # +2 เพื่อให้ชื่ออยู่เหนือแท่ง
+  labels = my_labels, 
+  srt = 90,       # หมุนชื่อให้ตั้งตรง
+  adj = 2,        # ชิดด้านล่างถ้าหมุน 90 องศา
+  cex = 0.7,      # ขนาดตัวหนังสือ
+  xpd = TRUE      # ให้พิมพ์เกินขอบกราฟได้ (ถ้าจำเป็น)
+)
+```
+
